@@ -62,7 +62,7 @@ A clean, distraction-free Personal Productivity Web App built with React. Organi
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/focusly.git
+git clone https://github.com/aryan29gupta/focusly.git
 cd focusly
 
 # Install dependencies

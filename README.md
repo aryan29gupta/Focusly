@@ -9,19 +9,19 @@ A clean, distraction-free task management app built with React. Organize your wo
 ## 📸 Screenshots
 
 ### 🌙 Dark Mode — Homepage
-![Focusly Homepage Dark](./screenshots/homepage-dark.png)
+![Focusly Homepage Dark](./images/homepage-dark.png)
 
 ### ☀️ Light Mode — Homepage
-![Focusly Homepage Light](./screenshots/homepage-light.png)
+![Focusly Homepage Light](./images/homepage-light.png)
 
 ### 📋 Tasks Overview — Light Mode
-![Tasks Overview Light](./screenshots/tasks-light.png)
+![Tasks Overview Light](./images/tasks-light.png)
 
 ### ✅ Task Created — Dark Mode
-![Task Created](./screenshots/task-created.png)
+![Task Created](./images/task-created.png)
 
 ### ✔️ Completed Tasks — Dark Mode
-![Completed Tasks](./screenshots/tasks-completed.png)
+![Completed Tasks](./images/tasks-completed.png)
 
 ---
 

@@ -1,16 +1,116 @@
-# React + Vite
+# ⚡ Focusly
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, distraction-free task management app built with React. Organize your work, study, and personal tasks — all in one place.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [focusly-five.vercel.app](https://focusly-five.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌙 Dark Mode — Homepage
+![Focusly Homepage Dark](./screenshots/homepage-dark.png)
 
-## Expanding the ESLint configuration
+### ☀️ Light Mode — Homepage
+![Focusly Homepage Light](./screenshots/homepage-light.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📋 Tasks Overview — Light Mode
+![Tasks Overview Light](./screenshots/tasks-light.png)
+
+### ✅ Task Created — Dark Mode
+![Task Created](./screenshots/task-created.png)
+
+### ✔️ Completed Tasks — Dark Mode
+![Completed Tasks](./screenshots/tasks-completed.png)
+
+---
+
+## ✨ Features
+
+- **Task Management** — Create, complete, and delete tasks
+- **Categories** — Organize tasks by Work, Study, or Personal
+- **Filter System** — Filter by category, active, or completed
+- **Dark / Light Mode** — Smooth toggle with persistence across sessions
+- **Local Storage** — Tasks and theme preference saved in the browser
+- **No Flash on Reload** — Theme is set before React mounts to avoid flicker
+- **Fully Responsive** — Works on desktop and mobile
+- **Smooth Animations** — Powered by Framer Motion
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 18 | UI framework |
+| Vite | Build tool |
+| React Router v6 | Client-side routing |
+| Framer Motion | Animations |
+| Tailwind CSS | Styling |
+| react-hot-toast | Toast notifications |
+| localStorage | Data persistence |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/focusly.git
+cd focusly
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   └── header.jsx          # Shared header with theme toggle
+├── context/
+│   └── ThemeContext.jsx     # Global dark/light theme state
+├── pages/
+│   ├── homepage.jsx         # Landing page
+│   └── taskoverview.jsx     # Task management page
+├── App.jsx                  # Routes
+└── main.jsx                 # Entry point
+```
+
+---
+
+## 🌐 Deployment
+
+This project is deployed on **Vercel**. The `vercel.json` handles client-side routing so page refreshes work correctly:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+---
+
+## 📄 License
+
+MIT — feel free to use and modify.

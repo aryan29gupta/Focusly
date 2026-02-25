@@ -2,11 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import Header from '../components/header';
+import { useTheme } from '../context/ThemeContext';
 
-const GridDots = () => (
+const GridDots = ({ isDark }) => (
   <svg
     className="absolute inset-0 w-full h-full"
-    style={{ opacity: 0.25 }}
+    style={{ opacity: isDark ? 0.25 : 0.15 }}
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
@@ -19,17 +20,21 @@ const GridDots = () => (
 );
 
 const FocuslyHomepage = () => {
-  const navigate = useNavigate();   // 👈 Initialize navigation
-
-  const handleGetStarted = () => {
-    navigate("/taskoverview");     // 👈 Redirect path
-  };
+  const navigate = useNavigate();
+  const { isDark } = useTheme();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-gray-100 overflow-x-hidden relative">
-      
-      <GridDots />
-      <Header/>
+    <div
+      className="min-h-screen overflow-x-hidden relative transition-colors duration-300"
+      style={{
+        background: isDark
+          ? "linear-gradient(to bottom, #0f172a, #020617, #0f172a)"
+          : "linear-gradient(to bottom, #f8fafc, #f1f5f9, #f8fafc)",
+        color: isDark ? "#f1f5f9" : "#0f172a",
+      }}
+    >
+      <GridDots isDark={isDark} />
+      <Header />
 
       <main className="relative z-10 pt-24 pb-32 max-w-4xl mx-auto px-6">
         <motion.div
@@ -38,8 +43,16 @@ const FocuslyHomepage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2 
-            className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-gray-100 via-white to-gray-300 bg-clip-text text-transparent mb-8 leading-tight tracking-tight"
+          <motion.h2
+            key={isDark ? "dark-heading" : "light-heading"}
+            className="text-6xl md:text-7xl font-bold mb-8 leading-tight tracking-tight"
+            style={isDark ? {
+              background: "linear-gradient(to right, #f1f5f9, #ffffff, #cbd5e1)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            } : {
+              color: "#0f172a",
+            }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -47,19 +60,20 @@ const FocuslyHomepage = () => {
             Stay Focused.<br />Get Things Done.
           </motion.h2>
 
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed px-4"
+          <motion.p
+            className="text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed px-4"
+            style={{ color: isDark ? "#94a3b8" : "#475569" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Focusly helps you organize your work, study, and personal tasks 
+            Focusly helps you organize your work, study, and personal tasks
             in one simple and distraction-free space.
           </motion.p>
 
           <motion.button
-            onClick={handleGetStarted}   // 👈 Add this
-            className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-black font-semibold px-12 py-5 rounded-xl text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden"
+            onClick={() => navigate("/taskoverview")}
+            className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-black font-semibold px-12 py-5 rounded-xl text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0, y: 30 }}

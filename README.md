@@ -1,6 +1,6 @@
 # ⚡ Focusly
 
-A clean, distraction-free task management app built with React. Organize your work, study, and personal tasks — all in one place.
+A clean, distraction-free Personal Productivity Web App built with React. Organize your work, study, and personal tasks — all in one place.
 
 🔗 **Live Demo:** [focusly-five.vercel.app](https://focusly-five.vercel.app)
 
@@ -110,7 +110,3 @@ This project is deployed on **Vercel**. The `vercel.json` handles client-side ro
 ```
 
 ---
-
-## 📄 License
-
-MIT — feel free to use and modify.
